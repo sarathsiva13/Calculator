@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="calculator">
+            <input type="text" placeholder="0" id="output-screen">
+            <button ondblclick="clear()">c1</button>
+            <button ondblclick="del()">del</button>
+            <button ondblclick="display('%')">%</button>
+            <button ondblclick="display('/')">/</button>
+            <button ondblclick="display('*')">*</button>
+            <button ondblclick="display('-')">-</button>
+            <button ondblclick="display('+')">+</button>
+            <button ondblclick="display('.')">.</button>
+            <button ondblclick="display('7')">7</button>
+            <button ondblclick="display('8')">8</button>
+            <button ondblclick="display('9')">9</button>
+            <button ondblclick="display('6')">6</button>
+            <button ondblclick="display('5')">5</button>
+            <button ondblclick="display('4')">4</button>
+            <button ondblclick="display('3')">3</button>
+            <button ondblclick="display('2')">2</button>
+            <button ondblclick="display('1')">1</button>
+            <button ondblclick="display('0')">0</button>
+            <button ondblclick="calculator()" class="equal">=</button>
+        </div>
+    </div>
+    <script>
+        let outputscreen =document.getElementById("output-screen");
+
+        function display(num){
+               outputscreen.value += num;
+        }
+        function calculator(){
+            try{
+                outputscreen.value =eval(outputscreen.value);
+            }
+            catch(err)
+            {
+                alert("invalid ")
+            }
+        }
+          function clear(){
+            outputscreen.value = "";
+          }
+        function del(){
+            outputscreen.value = outputscreen.value.slice(0, -1);
+        }
+    </script>
+</body>
+</html>
